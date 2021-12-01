@@ -56,14 +56,14 @@ WDTZeroCounter = _ewtcounter;            // SET Software EWT counter - used in I
 
 
   // Generic clock generator 2, divisor = 32 (2^(DIV+1))  = _x
-  GCLK->GENDIV.reg = GCLK_GENDIV_ID(2) | GCLK_GENDIV_DIV(_x);
+  //GCLK->GENDIV.reg = GCLK_GENDIV_ID(2) | GCLK_GENDIV_DIV(_x);
   // Enable clock generator 2 using low-power 32.768kHz oscillator.
   // With /32 divisor above, this yields 1024Hz clock.
-  GCLK->GENCTRL.reg = GCLK_GENCTRL_ID(2) |
+  //GCLK->GENCTRL.reg = GCLK_GENCTRL_ID(2) |
                       GCLK_GENCTRL_GENEN |
                       GCLK_GENCTRL_SRC_OSCULP32K |
                       GCLK_GENCTRL_DIVSEL;
-  while(GCLK->STATUS.bit.SYNCBUSY);
+  //while(GCLK->STATUS.bit.SYNCBUSY);
   // WDT clock = clock gen 2
   GCLK->CLKCTRL.reg = GCLK_CLKCTRL_ID_WDT |
                       GCLK_CLKCTRL_CLKEN |
